@@ -1,0 +1,17 @@
+version: "3"
+services:
+  db:
+    image: mysql/mysql-server:latest
+    env_file: .env
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "-u $$MYSQL_USER", "-p $$MYSQL_PASSWORD", "ping", "-h", "localhost"]
+      timeout: 2s
+      retries: 10
+  app:
+    build: .
+    env_file: .env
+    depends_on:
+      db:
+        condition: service_healthy
