@@ -13,10 +13,7 @@ What do you need to run this software?
 To run the software and see the result, do the following:
 
 1. Clone the repository to a folder on your local machine
-
-`$ git clone https://github.com/martijneenink/nzaassignment.git your/local/folder/`
-
-2. Run the following command
+2. From the folder, run the following command:
 
 `$ docker compose up --build --quiet-pull --no-log-prefix --attach app`
 
